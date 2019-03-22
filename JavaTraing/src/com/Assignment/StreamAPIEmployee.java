@@ -42,7 +42,7 @@ public class StreamAPIEmployee {
 	//SSn Based on Comparator
 			
 				Collections.sort(employees,new MySSNComp());
-		        System.out.println("\nSorted list entries based on SSN using Comparator: ");
+		        System.out.println("\nSorted list entries based on SSN using Comparator:\n ");
 		        for(Employee e:employees){
 		        	
 		        	System.out.println(e);
@@ -50,12 +50,18 @@ public class StreamAPIEmployee {
 	
 	}
 		        
-		   //Employee::getSSN
+		   //Employee::getSSN. or use comparing(Employee::getSSN)
 		   
-		        System.out.println("---Sorting using Comparator in Streams by SSN---");
+		        System.out.println("\n---Sorting using Comparator in Streams by SSN---\n");
 
-				final List<Employee> slist = employees.stream().sorted(Comparator.comparing(Employee::getSSN)).collect(Collectors.toList());
-				slist.forEach(e -> System.out.println(e));     
+				final List<Employee> slist = employees.stream().sorted(Comparator.comparingLong(e->e.getSSN())).collect(Collectors.toList());
+				System.out.println("\nwithout forEach");
+				System.out.println(slist);
+				
+				slist.forEach(e -> System.out.println(e));   
+				
+				/*employees.sort((o1,o2)->o2.getSSN().compareTo(o1.getSSN()));
+				System.out.println(employees);*/
 		      
 }
 }
