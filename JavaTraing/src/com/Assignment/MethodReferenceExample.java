@@ -34,11 +34,11 @@ public class MethodReferenceExample {
 		
 		//Requirement 2
 		EmployeeInterface obj=new EmployeeInterface() {};
-		final List<Employee1> employeeWithSal30KOrMore = employees.stream()
+		final List<Employee1> employeeWithSal20KOrMore = employees.stream()
 				                                                  .filter(obj::isSalaryGreaterThan20K)
 				                                                  .filter(EmployeeInterface::isDeveloper)
 				                                                  .collect(Collectors.toList());
-		System.out.println("\n----Developer with salaray greater than or equal to 20,000 -\n " + employeeWithSal30KOrMore);
+		System.out.println("\n----Developer with salaray greater than or equal to 20,000 -\n " + employeeWithSal20KOrMore);
 
 	}
 
